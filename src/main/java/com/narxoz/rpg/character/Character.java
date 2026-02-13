@@ -1,19 +1,28 @@
 package com.narxoz.rpg.character;
 
-import com.narxoz.rpg.equipment.Weapon;
-import com.narxoz.rpg.equipment.Armor;
+public abstract class Character {
 
-public interface Character {
+    protected String name;
+    protected int health;
+    protected int mana;
+    protected int strength;
+    protected int intelligence;
 
-    String getName();
+    public Character(String name, int health, int mana, int strength, int intelligence) {
+        this.name = name;
+        this.health = health;
+        this.mana = mana;
+        this.strength = strength;
+        this.intelligence = intelligence;
+    }
 
-    void displayStats();
+    public void getStats() {
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Mana: " + mana);
+        System.out.println("Strength: " + strength);
+        System.out.println("Intelligence: " + intelligence);
+    }
 
-    void useSpecialAbility();
-
-    void equipWeapon(Weapon weapon);
-
-    void equipArmor(Armor armor);
-
-    void displayEquipment();
+    public abstract void useSpecialAbility();
 }
