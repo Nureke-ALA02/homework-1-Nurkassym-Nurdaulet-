@@ -2,7 +2,6 @@ package com.narxoz.rpg.equipment;
 
 
 public class IronSword implements Weapon {
-
     private int damage;
     private String weaponType;
 
@@ -10,11 +9,6 @@ public class IronSword implements Weapon {
         this.damage = 25;
         this.weaponType = "Sword";
     }
-
-    // TODO: Implement methods from Weapon interface
-    // Define those methods in the Weapon interface first!
-
-    // Example method structure:
     public int getDamage() {
         return damage;
     }

@@ -10,8 +10,8 @@ public class PlateArmor implements Armor {
     public PlateArmor() {
         this.defense = 50;
         this.armorType = "Heavy";
-        this.specialProperty = "None"; // Medieval armor has no magic bonus
-        this.weight = 30.0; // in kilograms
+        this.specialProperty = "None";
+        this.weight = 30.0;
     }
 
     @Override
