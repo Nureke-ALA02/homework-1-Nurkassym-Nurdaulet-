@@ -1,5 +1,5 @@
 package com.narxoz.rpg.magic;
-import
+
 import com.narxoz.rpg.equipment.Weapon;
 
 public class MagicWeapon implements Weapon {
