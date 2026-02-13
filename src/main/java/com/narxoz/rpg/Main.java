@@ -1,65 +1,57 @@
 package com.narxoz.rpg;
-
-/**
- * Main demonstration class for the RPG Character & Equipment System.
- *
- * Your task: Demonstrate both Factory Method and Abstract Factory patterns working together.
- *
- * This file should showcase:
- * 1. Creating different character types using Factory Method pattern
- * 2. Equipping characters with themed equipment using Abstract Factory pattern
- * 3. Displaying character stats and equipment details
- *
- * Expected output flow:
- * - Create 3+ different characters
- * - Equip each with different themed equipment sets
- * - Show that the system is extensible and maintainable
- */
+import com.narxoz.rpg.character.*;
+import com.narxoz.rpg.character.Character;
+import com.narxoz.rpg.equipment.Armor;
+import com.narxoz.rpg.equipment.Weapon;
+import com.narxoz.rpg.factory.EquipmentFactory;
+import com.narxoz.rpg.factory.MagicFactory;
+import com.narxoz.rpg.factory.MedievalFactory;
+import com.narxoz.rpg.factory.RangerFactory;
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("=== RPG Character & Equipment System ===\n");
+        System.out.println("=== RPG Character Creation System ===\n");
+        CharacterCreator warriorCreator = new WarriorCreator();
+        Character warrior = warriorCreator.createCharacter("Thor");
 
-        // TODO: Demonstrate Factory Method Pattern
-        // Create different character types (Warrior, Mage, Archer, etc.)
-        // Think: How can you create characters without using if-else chains?
-        // Think: What class/interface should handle character creation?
+        System.out.println("Creating Warrior...");
+        warrior.getStats();
+        warrior.useSpecialAbility();
+        EquipmentFactory medievalFactory = new MedievalFactory();
+        Weapon wWeapon = medievalFactory.createWeapon();
+        Armor wArmor = medievalFactory.createArmor();
 
+        System.out.println("\nEquipping with Medieval Set...");
+        wWeapon.getWeaponInfo();
+        wArmor.getArmorInfo();
+        System.out.println("\n-------------------------\n");
+        CharacterCreator mageCreator = new MageCreator();
+        Character mage = mageCreator.createCharacter("Merlin");
 
-        // TODO: Demonstrate Abstract Factory Pattern
-        // Create equipment sets (Medieval, Magic, Ranger, etc.)
-        // Think: How do you ensure weapons and armor from same theme are created together?
-        // Think: What guarantees a Medieval sword comes with Medieval armor?
+        System.out.println("Creating Mage...");
+        mage.getStats();
+        mage.useSpecialAbility();
 
+        EquipmentFactory magicFactory = new MagicFactory();
+        Weapon mWeapon = magicFactory.createWeapon();
+        Armor mArmor = magicFactory.createArmor();
 
-        // TODO: Show character stats
-        // Display each character's attributes (health, mana, strength, intelligence)
-        // Show their special abilities
+        System.out.println("\nEquipping with Magic Set...");
+        mWeapon.getWeaponInfo();
+        mArmor.getArmorInfo();
+        System.out.println("\n-------------------------\n");
+        CharacterCreator archerCreator = new ArcherCreator();
+        Character archer = archerCreator.createCharacter("Legolas");
 
+        System.out.println("Creating Archer...");
+        archer.getStats();
+        archer.useSpecialAbility();
 
-        // TODO: Equip characters with different themed sets
-        // Warrior with Medieval equipment
-        // Mage with Magic equipment
-        // Archer with Ranger equipment
-        // etc.
-
-
-        // TODO: Display equipped items
-        // Show weapon details (damage, special properties)
-        // Show armor details (defense, special properties)
-
-
-        // TODO: (Optional) Demonstrate extensibility
-        // In comments, explain how easy it would be to:
-        // - Add a new character class (e.g., Rogue, Paladin)
-        // - Add a new equipment theme (e.g., Dragon Slayer, Undead)
-
-
-        System.out.println("\n=== Demo Complete ===");
+        EquipmentFactory rangerFactory = new RangerFactory();
+        Weapon aWeapon = rangerFactory.createWeapon();
+        Armor aArmor = rangerFactory.createArmor();
+        System.out.println("\nEquipping with Ranger Set...");
+        aWeapon.getWeaponInfo();
+        aArmor.getArmorInfo();
     }
-
-    // TODO: Add helper methods as needed
-    // Consider methods like:
-    // - createAndDisplayCharacter(...)
-    // - equipCharacter(...)
-    // - displayCharacterInfo(...)
 }
